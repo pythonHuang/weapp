@@ -36,6 +36,13 @@ Page({
    */
   onLoad: function (options) {
 
+    // wx,wx.downloadFile({
+    //   url: 'https://yimg.datixia.com/youxi/abc.com',
+    //   header: {},
+    //   success: function(res) {},
+    //   fail: function(res) {},
+    //   complete: function(res) {},
+    // })
   },
 
   /**
@@ -102,7 +109,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-        title:"小试牛刀，不服来战！",
+        title:"小弹一曲，不服来战！",
         path:'pages/piano/index'
     };
   },
@@ -125,12 +132,12 @@ Page({
       vavtype = that.data.avtype;
     }else{
         if (that.data.avtypeDown2Up == 0){//低音
-          if (that.data.avtype != "1") {
+          if (that.data.avtype != "3") {
             vavtype = parseInt(vavtype)-1;
           }
          
         }else{//高音
-          if (that.data.avtype != "7") {
+          if (that.data.avtype != "6") {
             vavtype = parseInt(vavtype) + 1;
           }
         }

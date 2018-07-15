@@ -65,7 +65,7 @@
       data-appparam="{{item.appparam}}"
       data-id="{{item.id}}"
         >
-          <image wx:if="{{item.icon||item.thumb}}" class="commend-thumb" src="{{item.icon ||item.thumb}}"  style="{{item.height?'':(item.height+'rpx')}}" />
+          <image wx:if="{{item.icon||item.thumb}}" class="commend-thumb" src="{{item.icon ||item.thumb}}"  style="{{item.height?'':('height:'+item.height+'rpx')}}" />
           <view wx:if="{{item.title||item.name||item.advname}}" class="commend-title">{{item.title||item.name||item.advname}}</view>
         </navigator>
         <block wx:if="{{item.adid}}">
@@ -94,7 +94,7 @@
         data-appparam="{{item.appparam}}"
         data-id="{{item.id}}"
         >
-          <image wx:if="{{item.icon||item.thumb}}" class="commend-thumb" src="{{item.icon ||item.thumb}}"   style="{{item.height?'':(item.height+'rpx')}}"/>
+          <image wx:if="{{item.icon||item.thumb}}" class="commend-thumb" src="{{item.icon ||item.thumb}}"   style="{{item.height?'':('height:'+item.height+'rpx')}}" />
           <view wx:if="{{item.title||item.name||item.advname}}" class="commend-title">{{item.title||item.name||item.advname}}</view>
         </navigator>
          <block wx:if="{{item.adid}}">

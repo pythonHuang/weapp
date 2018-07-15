@@ -14,13 +14,13 @@
 </view>
 
 <view class="avtype" catchtap='changeAvType'>
- <view data-type='1' class="{{avtype==1?'current':''}}">超低</view>
-  <view data-type='2' class="{{avtype==2?'current':''}}">倍低</view>
+ <!-- <view data-type='1' class="{{avtype==1?'current':''}}">超低</view>
+  <view data-type='2' class="{{avtype==2?'current':''}}">倍低</view> -->
   <view data-type='3' class="{{avtype==3?'current':''}}">低</view>
   <view data-type='4' class="{{avtype==4?'current':''}}">中</view>
   <view data-type='5' class="{{avtype==5?'current':''}}">高</view>
   <view data-type='6' class="{{avtype==6?'current':''}}">倍高</view>
-  <view data-type='7' class="{{avtype==7?'current':''}}">超高</view>
+  <!-- <view data-type='7' class="{{avtype==7?'current':''}}">超高</view> -->
 </view>
 <!-- 
 <audio binderror="averror" id="myAudio" src="{{av}}" autoplay=""></audio> -->
@@ -39,6 +39,9 @@
     </view>
     <view class='song-title' catchtap='moretap'>
       更多精彩，敬请期待
+    </view>
+    <view class='song-title' style="height:48rpx">
+     
     </view>
   </view>
 </view>
