@@ -25,7 +25,7 @@ Page({
     songs:[
       //jiePPais 每节拍数 4
       //miniPPais 第分钟拍数 80
-      { title: "两只老虎", type: 4, jiePPais: 4, miniPPais: 80, code: "1231 1231 345- 345- 565431 565431 3e1- 3e1- " },
+      { title: "两只老虎", type: 5, jiePPais: 4, miniPPais: 80, code: "1231 1231 345- 345- 565431 565431 3e1- 3e1- " },
       { title: "小小星星亮晶晶", type: 4, jiePPais: 2, miniPPais: 80, code: "11 55 66 5- 44 33 22 1- 55 44 33 2- 55 44 33 2- 11 55 " },
       { title: "粉刷匠", type: 4, jiePPais: 4, miniPPais: 160, code: "5353 551- 2432 5--- 5353 531- 2432 1--- 2244 315- 2432 5---5353 531- 2432 1-00 " },
     ]
@@ -125,32 +125,29 @@ Page({
       vavtype = that.data.avtype;
     }else{
         if (that.data.avtypeDown2Up == 0){//低音
-          if (that.data.avtype == "4") {
-            vavtype = "3";
+          if (that.data.avtype != "1") {
+            vavtype = parseInt(vavtype)-1;
           }
-          if (that.data.avtype == "3") {
-            vavtype = "3";
-          }
-          if (that.data.avtype == "7") {
-            vavtype = "4";
-          }
+         
         }else{//高音
-          if (that.data.avtype == "4") {
-            vavtype = "7";
-          }
-          if (that.data.avtype == "3") {
-            vavtype = "4";
-          }
-          if (that.data.avtype == "7") {
-            vavtype = "7";
+          if (that.data.avtype != "7") {
+            vavtype = parseInt(vavtype) + 1;
           }
         }
     }
-    if (that.data.avtype != oldvavtype){
+    if (vavtype != oldvavtype){
       that.setData({
         avtype:vavtype
       });
+      that.data.avtypechange=true;
       that.data.avtype = oldvavtype;
+    }else{
+      if (that.data.avtypechange == true){
+        that.setData({
+          avtype: vavtype
+        });
+      }
+      that.data.avtypechange = false;
     }
     that.data.avtypeDown2Up = 1;
     if (!type || type == "0"|| type == " " || type == "|" || type == "-" ){
