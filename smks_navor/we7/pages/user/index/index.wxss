@@ -17,3 +17,8 @@
 .textContainer {
   margin-top: 200px;
 }
+.avatar{
+  border-radius:50%;
+  border:3px solid #eee;
+  overflow: hidden;
+}

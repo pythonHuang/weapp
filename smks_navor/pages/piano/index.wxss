@@ -103,3 +103,6 @@ page {
 .song-title{
   color:yellow;
 }
+.song-panel .current{
+ color:red;
+}

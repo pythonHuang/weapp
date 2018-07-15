@@ -6,6 +6,7 @@ Page({
    */
   data: {
     avtype:'4',
+    avtypeDown2Up:1,//0 低音 1正常 2高音
     bsd1: "none",
     bsd2: "none",
     bsd3: "none",
@@ -24,7 +25,7 @@ Page({
     songs:[
       //jiePPais 每节拍数 4
       //miniPPais 第分钟拍数 80
-      { title: "两只老虎", type: 4, jiePPais: 4, miniPPais: 80, code: "1231 1231 345- 345- 565431 565431 151- 151- " },
+      { title: "两只老虎", type: 4, jiePPais: 4, miniPPais: 80, code: "1231 1231 345- 345- 565431 565431 3e1- 3e1- " },
       { title: "小小星星亮晶晶", type: 4, jiePPais: 2, miniPPais: 80, code: "11 55 66 5- 44 33 22 1- 55 44 33 2- 55 44 33 2- 11 55 " },
       { title: "粉刷匠", type: 4, jiePPais: 4, miniPPais: 160, code: "5353 551- 2432 5--- 5353 531- 2432 1--- 2244 315- 2432 5---5353 531- 2432 1-00 " },
     ]
@@ -117,6 +118,41 @@ Page({
   },
   keyDownHandler:function(type){
     var that = this;
+    var oldvavtype = that.data.avtype;
+    var vavtype=that.data.avtype;
+    
+    if (!vavtype || that.data.avtypeDown2Up==1){
+      vavtype = that.data.avtype;
+    }else{
+        if (that.data.avtypeDown2Up == 0){//低音
+          if (that.data.avtype == "4") {
+            vavtype = "3";
+          }
+          if (that.data.avtype == "3") {
+            vavtype = "3";
+          }
+          if (that.data.avtype == "7") {
+            vavtype = "4";
+          }
+        }else{//高音
+          if (that.data.avtype == "4") {
+            vavtype = "7";
+          }
+          if (that.data.avtype == "3") {
+            vavtype = "4";
+          }
+          if (that.data.avtype == "7") {
+            vavtype = "7";
+          }
+        }
+    }
+    if (that.data.avtype != oldvavtype){
+      that.setData({
+        avtype:vavtype
+      });
+      that.data.avtype = oldvavtype;
+    }
+    that.data.avtypeDown2Up = 1;
     if (!type || type == "0"|| type == " " || type == "|" || type == "-" ){
       if (type == " " || type == "|" || type == "0"){
         that.innerAudioContext.src = "";
@@ -126,8 +162,10 @@ Page({
       if(type=="-"){
 
       }
+      console.log(":"+type);
       return;
     }
+    console.log(type);
     var datas={};
     var key=type;
     switch(type){
@@ -171,7 +209,7 @@ Page({
     }
     datas["bsd" + type] = "1px 1px 5px orange inset";
     //datas["av"] = "https://wxos.xmhouse.com/myimage/louba/sound/4/" + key + ".mp3";
-    datas["av"] = "/resource/soundp/" + that.data.avtype+"/" + key + ".mp3"; //oga
+    datas["av"] = "/resource/soundp/" + vavtype+"/" + key + ".mp3"; //oga
     //that.audioCtx.pause();
     var hasChange=datas.av!=that.data.av;
     console.log(datas.av);
@@ -232,11 +270,12 @@ Page({
   singsong:function(e){
     var that = this;
     console.log(e);
+    that.stopCurSong();
     var index = e.target.dataset.index;
     that.setData({
       curIndex: index
     });
-    that.stopCurSong();
+    
     that.singCurSong(that.data.songs[index]);
   },
   stopCurSong:function(){
@@ -258,41 +297,59 @@ Page({
     var miniPPais = song.miniPPais || 80;//第分钟拍数
     var paiPSecs = 60*1000*1.0/(miniPPais + (miniPPais/jiePPais)) ||600;//每拍间隔毫秒数
     var index=0;
+    console.log("song:", song.code);
     that.singtimer=setInterval(function(){
       var key=song.code[index++];
       if (!key) {
         that.stopCurSong();
         return;
       }
-      var type=key.toUpperCase();
-     
+      var type=key;
+      that.data.avtypeDown2Up = 1;
+      //低音
+      if (type.toUpperCase() != type && type.toLowerCase() == type) {
+        that.data.avtypeDown2Up = 0;
+      } 
+      //商音
+      if (type.toLowerCase() != type && type.toUpperCase()==type){
+        that.data.avtypeDown2Up = 2;
+      }
+      type = type.toUpperCase();
       switch(key){
-        case "A":
+        case "a":
         case "1":
-          type=1;
+        case "A":
+          type = 1;
           break;
-        case "B":
+        case "8":
+        case "b":
         case "2":
+        case "B":
           type =2;
           break;
-        case "C":
+        case "c":
         case "3":
+        case "C":
           type = 3;
           break;
-        case "D":
+        case "d":
         case "4":
+        case "D":
           type = 4;
           break;
-        case "E":
+        case "e":
         case "5":
+        case "E":
           type = 5;
           break;
-        case "F":
+        case "f":
         case "6":
+        case "F":
           type = 6;
           break;
-        case "G":
+        case "g":
         case "7":
+        case "G":
           type = 7;
           break;
       }

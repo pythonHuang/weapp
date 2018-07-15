@@ -27,8 +27,9 @@
    <button style="float:right"  open-type='share'>分享</button>
   </view>
   <view>
-    <view wx:for="{{songs}}"  class='song-title'
+    <view wx:for="{{songs}}" 
      catchtap='singsong' data-index="{{index}}"
+     class="song-title {{curIndex==index?'current':''}}"
     >
       {{item.title}}
     </view>
