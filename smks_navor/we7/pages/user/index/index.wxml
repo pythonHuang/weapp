@@ -1,0 +1,15 @@
+<view class="container">
+  <open-data type="groupName" open-gid="xxxxxx"></open-data>
+<open-data type="userAvatarUrl"></open-data>
+<!-- <open-data type="userGender" lang="zh_CN"></open-data> -->
+<open-data type="userNickName" lang="zh_CN"></open-data>
+<!-- <open-data type="userCity" lang="zh_CN"></open-data> -->
+<!-- <button open-type='getuserinfo' > 点击允许授权</button> -->
+<button type="primary" size="{{defaultSize}}"  plain="{{plain}}"
+      open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" hover-class="other-button-hover"> 点击允许授权 </button>
+  <view class="textContainer">
+    <!-- <text class="textStyle">{{text}}</text> -->
+  </view>
+</view>
+<!-- <import src="/we7/pages/templates/footer.wxml" />
+<template is="footerWx" data="{{...tabBar}}" /> -->

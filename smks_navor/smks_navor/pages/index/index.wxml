@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<import src="../templates/adv.wxml"/>
+<view class="container">
+	<template is="swiperlist" data="{{list:swiperlist}}"/>
+	<template is="icon3list" data="{{list:icon3list}}"/>
+  <template is="onelist" data="{{list:onelist}}"/>
+   <template is="contentlist" data="{{navbars:contentlist}}"/>
+</view>
+<!-- <ad unit-id="{{item.adid}}">
+</ad> -->
+<!-- <import src="/we7/pages/templates/footer.wxml"/>
+<template is="footerWx" data="{{...tabBar}}"/> -->
