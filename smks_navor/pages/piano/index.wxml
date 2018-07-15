@@ -37,7 +37,7 @@
     >
       {{item.title}}
     </view>
-    <view class='song-title'>
+    <view class='song-title' catchtap='moretap'>
       更多精彩，敬请期待
     </view>
   </view>
