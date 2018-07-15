@@ -6,17 +6,21 @@
   <view id="btn5" data-type='5' style="box-shadow: {{bsd5}};">T</view>
   <view id="btn6" data-type='6' style="box-shadow: {{bsd6}};">Y</view>
   <view id="btn7" data-type='7' style="box-shadow: {{bsd7}};">U</view>
-  <view id="btn8" data-type='8' style="box-shadow: {{bsd8}};">1</view>
-  <view id="btn9" data-type='9' style="box-shadow: {{bsd9}};">2</view>
-  <view id="btn10" data-type='10' style="box-shadow: {{bsd10}};">3</view>
-  <view id="btn11" data-type='11' style="box-shadow: {{bsd11}};">4</view>
-  <view id="btn12" data-type='12' style="box-shadow: {{bsd12}};">5</view>
+  <view id="btn8" data-type='01' style="box-shadow: {{bsd8}};">1</view>
+  <view id="btn9" data-type='02' style="box-shadow: {{bsd9}};">2</view>
+  <view id="btn10" data-type='04' style="box-shadow: {{bsd10}};">3</view>
+  <view id="btn11" data-type='05' style="box-shadow: {{bsd11}};">4</view>
+  <view id="btn12" data-type='06' style="box-shadow: {{bsd12}};">5</view>
 </view>
 
 <view class="avtype" catchtap='changeAvType'>
+ <view data-type='1' class="{{avtype==1?'current':''}}">超低</view>
+  <view data-type='2' class="{{avtype==2?'current':''}}">倍低</view>
   <view data-type='3' class="{{avtype==3?'current':''}}">低</view>
   <view data-type='4' class="{{avtype==4?'current':''}}">中</view>
-  <view data-type='7' class="{{avtype==7?'current':''}}">高</view>
+  <view data-type='5' class="{{avtype==5?'current':''}}">高</view>
+  <view data-type='6' class="{{avtype==6?'current':''}}">倍高</view>
+  <view data-type='7' class="{{avtype==7?'current':''}}">超高</view>
 </view>
 <!-- 
 <audio binderror="averror" id="myAudio" src="{{av}}" autoplay=""></audio> -->

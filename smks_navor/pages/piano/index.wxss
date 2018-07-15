@@ -90,7 +90,7 @@ page {
 }
 .avtype view{
   display: inline-block;
-  width: 33%;
+  width: 12%;
 }
 .avtype .current{
  color:red;

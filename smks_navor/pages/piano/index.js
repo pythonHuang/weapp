@@ -190,21 +190,21 @@ Page({
       case "7 "://U
         key = "7";
         break;
-      case "8":
-        key = "8";
+      case "01":
+        key = "01";
         break;
-      case "9":
-        key = "9";
+      case "02":
+        key = "02";
         break;
 
-      case "10":
-        key = "7";
+      case "03":
+        key = "03";
         break;
-      case "11":
-        key = "6";
+      case "05":
+        key = "05";
         break;
-      case "12":
-        key = "5";
+      case "06":
+        key = "06";
         break;
     }
     datas["bsd" + type] = "1px 1px 5px orange inset";
