@@ -22,60 +22,60 @@ Page({
     app.util.footer(that);
 
     
-    //初始化导航数据
-    app.util.request({
-      url: 'entry/wxapp/GetMusicList',
-      cachetime: '30',
-      success: function (res) {
-        console.log(res.data);
-        if (!res.data.message.errno) {
-          that.setData({
-            songs: res.data.data,
-          });
-          if (res.data.data && res.data.data.length){
-            wx.setStorageSync("songs", res.data.data);
-          }
-        }
-      }
-    });
-    //初始化导航数据
-    app.util.request({
-      'url': 'wxapp/home/nav',
-      'cachetime': '30',
-      success: function (res) {
-        if (!res.data.message.errno) {
-          console.log(res.data.message.message)
-          that.setData({
-            navs: res.data.message.message,
-          })
+    // //初始化导航数据
+    // app.util.request({
+    //   url: 'entry/wxapp/GetMusicList',
+    //   cachetime: '30',
+    //   success: function (res) {
+    //     console.log(res.data);
+    //     if (!res.data.message.errno) {
+    //       that.setData({
+    //         songs: res.data.data,
+    //       });
+    //       if (res.data.data && res.data.data.length){
+    //         wx.setStorageSync("songs", res.data.data);
+    //       }
+    //     }
+    //   }
+    // });
+    // //初始化导航数据
+    // app.util.request({
+    //   'url': 'wxapp/home/nav',
+    //   'cachetime': '30',
+    //   success: function (res) {
+    //     if (!res.data.message.errno) {
+    //       console.log(res.data.message.message)
+    //       that.setData({
+    //         navs: res.data.message.message,
+    //       })
           
-        }
-      }
-    });
-    app.util.request({
-      'url': 'wxapp/home/slide',
-      'cachetime': '30',
-      success: function (res) {
-        if (!res.data.message.errno) {
-          that.setData({
-            slide: res.data.message.message,
-          })
-        }
-      }
-    });
-    app.util.request({
-      url: 'wxapp/home/commend',
-      cachetime: '30',
-      success: function (res) {
-        if (!res.data.message.errno) {
-          that.setData({
-            commend: res.data.message.message,
-          })
-        }
-      }
-    });
+    //     }
+    //   }
+    // });
+    // app.util.request({
+    //   'url': 'wxapp/home/slide',
+    //   'cachetime': '30',
+    //   success: function (res) {
+    //     if (!res.data.message.errno) {
+    //       that.setData({
+    //         slide: res.data.message.message,
+    //       })
+    //     }
+    //   }
+    // });
+    // app.util.request({
+    //   url: 'wxapp/home/commend',
+    //   cachetime: '30',
+    //   success: function (res) {
+    //     if (!res.data.message.errno) {
+    //       that.setData({
+    //         commend: res.data.message.message,
+    //       })
+    //     }
+    //   }
+    // });
 
-    //
+    // //
     app.util.request({
       url: 'entry/wxapp/swiperlist',
       //cachetime: '30',
@@ -88,8 +88,20 @@ Page({
       }
     });
     app.util.request({
+      url: 'entry/wxapp/contentlist',
+      cachetime: '30',
+      success: function (res) {
+        console.log(res.data);
+        if (!res.data.message.errno) {
+          that.setData({
+            contentlist: res.data.data,
+          })
+        }
+      }
+    });
+    app.util.request({
       url: 'entry/wxapp/icon3list',
-      //cachetime: '30',
+      cachetime: '30',
       success: function (res) {
         if (!res.data.message.errno) {
           that.setData({
@@ -100,7 +112,7 @@ Page({
     });
     app.util.request({
       url: 'entry/wxapp/icon5list',
-      //cachetime: '30',
+      cachetime: '30',
       success: function (res) {
         if (!res.data.message.errno) {
           that.setData({
@@ -112,7 +124,7 @@ Page({
     
     app.util.request({
       url: 'entry/wxapp/onelist',
-      //cachetime: '30',
+      cachetime: '30',
       success: function (res) {
         if (!res.data.message.errno) {
           that.setData({
@@ -121,41 +133,30 @@ Page({
         }
       }
     });
-    app.util.request({
-      url: 'entry/wxapp/twolist',
-      //cachetime: '30',
-      success: function (res) {
-        if (!res.data.message.errno) {
-          that.setData({
-            twolist: res.data.data,
-          })
-        }
-      }
-    });
-    app.util.request({
-      url: 'entry/wxapp/threelist',
-      //cachetime: '30',
-      success: function (res) {
-        console.log(res.data);
-        if (!res.data.message.errno) {
-          that.setData({
-            threelist: res.data.data,
-          })
-        }
-      }
-    });
-    app.util.request({
-      url: 'entry/wxapp/contentlist',
-      //cachetime: '30',
-      success: function (res) {
-        console.log(res.data);
-        if (!res.data.message.errno) {
-          that.setData({
-            contentlist: res.data.data,
-          })
-        }
-      }
-    });
+    // app.util.request({
+    //   url: 'entry/wxapp/twolist',
+    //   cachetime: '30',
+    //   success: function (res) {
+    //     if (!res.data.message.errno) {
+    //       that.setData({
+    //         twolist: res.data.data,
+    //       })
+    //     }
+    //   }
+    // });
+    // app.util.request({
+    //   url: 'entry/wxapp/threelist',
+    //   cachetime: '30',
+    //   success: function (res) {
+    //     console.log(res.data);
+    //     if (!res.data.message.errno) {
+    //       that.setData({
+    //         threelist: res.data.data,
+    //       })
+    //     }
+    //   }
+    // });
+   
   },
   goToUrl:function(e){
     console.log(e);
