@@ -44,7 +44,16 @@ Page({
     //   complete: function(res) {},
     // })
   },
-
+  goToUser:function(){
+    wx.navigateTo({
+      url: '/we7/pages/user/index/index',
+    })
+  },
+  goToMore: function () {
+    wx.navigateTo({
+      url: '/smks_navor/pages/index/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,12 +1,21 @@
 page {
   background-color: #42426f;
 }
-
+.avatar{
+  position:absolute;
+  right:8rpx;
+  border-radius:50%;
+  border:3rpx solid #eee;
+  overflow:hidden;
+  height:61rpx;
+  width:61rpx;
+  z-index:9999;
+}
 .main {
-  margin: 50px auto;
+  margin: 26rpx auto;
   /*background-color:   #D98719;*/
   width: 600rpx;
-  height: 480rpx;
+  height: 398rpx;
   position: relative;
   perspective: 1200rpx;
   text-align: center;
