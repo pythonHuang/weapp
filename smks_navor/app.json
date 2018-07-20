@@ -11,7 +11,7 @@
     "deviceOrientation": "portrait",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "模拟钢琴",
+    "navigationBarTitleText": "钢琴模拟器",
     "navigationBarTextStyle": "black"
   }
 }

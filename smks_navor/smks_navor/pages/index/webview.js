@@ -7,6 +7,7 @@ Page({
   data: {
     url: "",
     title:"",
+    linkUrl:"",
   },
 
   /**
@@ -14,7 +15,7 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
-    var title = options.url || "";
+    var title = decodeURIComponent(options.title || "");
     if(title){
       that.setData({
         title:title,
@@ -29,7 +30,7 @@ Page({
     if(url){
       if(url.indexOf("http://")>-1){
         url = url.replace("http://","https://");
-      }else if(url.indexOf("https://")>-1){
+      }else if(url.indexOf("https://")==-1){
         url = "https://" + url;
       }
     }
@@ -89,6 +90,28 @@ Page({
       title: title,
       path: "/smks_navor/index/webview?url=" + encodeURIComponent(e.webViewUrl)+
         "&title="+encodeURIComponent(title),
+    }
+  },
+  bindMessage:function(e){
+
+    if(e.detail.data){
+      var data=e.detail.data;
+      var title=""
+      var linkUrl="";
+      if(typeof(data)=="string"){
+          title=data;
+      }else{
+        if(data[0]){
+          title = data[0].title || "";
+          linkUrl = data[0].linkUrl||"";
+        }
+      }
+      if(title){
+        this.setData({
+          title:title,
+          linkUrl:linkUrl,
+        })
+      }
     }
   }
 })
