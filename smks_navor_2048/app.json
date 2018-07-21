@@ -1,0 +1,19 @@
+{
+  "pages": [
+  
+    "pages/pianohen/index",
+    "pages/piano/index",
+    "smks_navor/pages/index/index",
+    "smks_navor/pages/index/webview",
+    "we7/pages/index/index",
+    "we7/pages/user/index/index"
+  ],
+  "deviceOrientation": "portrait",
+  "window": {
+    "deviceOrientation": "portrait",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "2048数字方块俄罗斯方块消消消",
+    "navigationBarTextStyle": "black"
+  }
+}

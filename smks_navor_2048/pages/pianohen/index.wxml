@@ -1,0 +1,56 @@
+<open-data class="avatar" type="userAvatarUrl" catchtap="goToUser"></open-data>
+
+<view class="main" catchtap='keyDown'>
+  <view id="btn1" data-type='1' style="box-shadow: {{bsd1}};">Q</view>
+  <view id="btn2" data-type='2' style="box-shadow: {{bsd2}};">W</view>
+  <view id="btn3" data-type='3' style="box-shadow: {{bsd3}};">E</view>
+  <view id="btn4" data-type='4' style="box-shadow: {{bsd4}};">R</view>
+  <view id="btn5" data-type='5' style="box-shadow: {{bsd5}};">T</view>
+  <view id="btn6" data-type='6' style="box-shadow: {{bsd6}};">Y</view>
+  <view id="btn7" data-type='7' style="box-shadow: {{bsd7}};">U</view>
+  <view id="btn8" data-type='01' style="box-shadow: {{bsd8}};">1</view>
+  <view id="btn9" data-type='02' style="box-shadow: {{bsd9}};">2</view>
+  <view id="btn10" data-type='04' style="box-shadow: {{bsd10}};">3</view>
+  <view id="btn11" data-type='05' style="box-shadow: {{bsd11}};">4</view>
+  <view id="btn12" data-type='06' style="box-shadow: {{bsd12}};">5</view>
+</view>
+<view class="avtype" catchtap='changeAvType'>
+ <!-- <view data-type='1' class="{{avtype==1?'current':''}}">超低</view>
+  <view data-type='2' class="{{avtype==2?'current':''}}">倍低</view> -->
+  <view data-type='3' class="{{avtype==3?'current':''}}">低</view>
+  <view data-type='4' class="{{avtype==4?'current':''}}">中</view>
+  <view data-type='5' class="{{avtype==5?'current':''}}">高</view>
+  <view data-type='6' class="{{avtype==6?'current':''}}">倍高</view>
+  <!-- <view data-type='7' class="{{avtype==7?'current':''}}">超高</view> -->
+</view>
+<!-- 
+<audio binderror="averror" id="myAudio" src="{{av}}" autoplay=""></audio> -->
+
+<view class='song-panel'>
+  <view class='song-header'>
+    歌曲:
+    <button style="position:absolute;right:40rpx" type='warn'  size='mini'  open-type='share'>分享给朋友</button>
+     <button style="position:absolute;right:40rpx;margin-top:100rpx;" type='default'  size='mini' catchtap='goToMore' >更多精彩…</button>
+     
+  
+  </view>
+  <view>
+    <view wx:for="{{songs}}" 
+     catchtap='singsong' data-index="{{index}}"
+     class="song-title {{curIndex==index?'current':''}}"
+    >
+      {{item.title}}
+    </view>
+    <view class='song-title' catchtap='moretap'>
+      更多精彩，敬请期待
+    </view>
+    <view class='song-title' style="height:48rpx">
+     
+    </view>
+  </view>
+</view>
+<!--     
+     <audio poster="http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000" name="此时此刻" author="许巍" src="http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E06DCBDC9AB7C49FD713D632D313AC4858BACB8DDD29067D3C601481D36E62053BF8DFEAF74C0A5CCFADD6471160CAF3E6A&fromtag=46" id="myAudio" controls loop autoplay="true"></audio> -->
+
+     <import src="../../smks_navor/pages/templates/adv.wxml"/>
+        <template is="adlist" data="{{list:onelist}}"/>

@@ -1,0 +1,118 @@
+@import '../../smks_navor/pages/templates/adv.wxss';
+page {
+  background-color: #42426f;
+}
+.avatar{
+  position:absolute;
+  right:8rpx;
+  border-radius:50%;
+  border:3rpx solid #eee;
+  overflow:hidden;
+  height:80rpx;
+  width:80rpx;
+  z-index:9999;
+}
+.main {
+  margin: 26rpx auto;
+  /*background-color:   #D98719;*/
+  width: 600rpx;
+  height: 398rpx;
+  position: relative;
+  perspective: 1200rpx;
+  text-align: center;
+  color: red;
+  box-shadow: 2px 2px 10px #42426f;
+}
+
+.main view {
+  width: 80rpx;
+  height: 400rpx;
+  background-color: white;
+  border: 1px solid black;
+  float: left;
+  box-shadow: 0 0 5px gray;
+  transform: rotateX(30deg);
+  font-style: italic;
+  font-size: 40rpx;
+  font-family: Calibri;
+}
+
+#btn8 {
+  width: 35rpx;
+  height: 220rpx;
+  background-color: black;
+  position: absolute;
+  font-style: normal;
+  left: 70rpx;
+  top: 20rpx;
+  color: white;
+}
+
+#btn9 {
+  width: 35rpx;
+  height: 220rpx;
+  background-color: black;
+  position: absolute;
+  font-style: normal;
+  left: 150rpx;
+  top: 20rpx;
+  color: white;
+}
+
+#btn10 {
+  width: 35rpx;
+  height: 220rpx;
+  background-color: black;
+  position: absolute;
+  font-style: normal;
+  left: 308rpx;
+  top: 20rpx;
+  color: white;
+}
+
+#btn11 {
+  width: 35rpx;
+  height: 220rpx;
+  background-color: black;
+  position: absolute;
+  font-style: normal;
+  left: 385rpx;
+  top: 20rpx;
+  color: white;
+}
+
+#btn12 {
+  width: 35rpx;
+  height: 220rpx;
+  background-color: black;
+  position: absolute;
+  font-style: normal;
+  left: 465rpx;
+  top: 20rpx;
+  color: white;
+}
+
+
+.avtype{
+ width: 80%;
+ margin:0px auto;
+ color:white;
+}
+.avtype view{
+  display: inline-block;
+  width: 12%;
+}
+.avtype .current{
+ color:red;
+}
+
+.song-panel{
+  color:white;
+  margin: 40rpx;
+}
+.song-title{
+  color:yellow;
+}
+.song-panel .current{
+ color:red;
+}
