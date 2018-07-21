@@ -88,7 +88,7 @@ Page({
     var title=this.data.title;
     return {
       title: title,
-      path: "/smks_navor/index/webview?url=" + encodeURIComponent(e.webViewUrl)+
+      path: "/smks_navor/pages/index/webview?url=" + encodeURIComponent(e.webViewUrl)+
         "&title="+encodeURIComponent(title),
     }
   },

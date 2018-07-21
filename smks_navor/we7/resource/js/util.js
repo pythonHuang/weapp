@@ -172,8 +172,8 @@ util.request = function (option) {
 	if (!url) {
 		return false;
 	}
-	wx.showNavigationBarLoading();
 	if (option.showLoading) {
+    wx.showNavigationBarLoading();
 		util.showLoading();
 	}
 	if (option.cachetime) {
@@ -182,7 +182,7 @@ util.request = function (option) {
 		var timestamp = Date.parse(new Date());
 
 		if (cachedata && cachedata.data) {
-			if (cachedata.expire > timestamp) {
+      if (cachedata.expire > timestamp || option.secondCache) {//未过期，或者二级缓存
 				if (option.complete && typeof option.complete == 'function') {
 					option.complete(cachedata);
 				}
@@ -190,10 +190,15 @@ util.request = function (option) {
 					option.success(cachedata);
 				}
 				console.log('cache:' + url);
-				wx.hideLoading();
-				wx.hideNavigationBarLoading();
-				return true;
-			} else {
+        if (option.showLoading) {
+          wx.hideLoading();
+          wx.hideNavigationBarLoading();
+        }
+        if (cachedata.expire > timestamp){
+          return true;
+        }
+			} 
+      if (cachedata.expire <= timestamp) {
 				wx.removeStorageSync(cachekey)
 			}
 		}
@@ -207,8 +212,10 @@ util.request = function (option) {
 			'content-type': 'application/x-www-form-urlencoded'
 		},
 		'success': function (response) {
-			wx.hideNavigationBarLoading();
-			wx.hideLoading();
+      if (option.showLoading) {
+        wx.hideNavigationBarLoading();
+        wx.hideLoading();
+      }
 			if (response.data.errno) {
 				if (response.data.errno == '41009') {
 					wx.setStorageSync('userInfo', '');
@@ -243,8 +250,10 @@ util.request = function (option) {
 			}
 		},
 		'fail': function (response) {
-			wx.hideNavigationBarLoading();
-			wx.hideLoading();
+      if (option.showLoading) {
+        wx.hideNavigationBarLoading();
+        wx.hideLoading();
+      }
 			
 			//如果请求失败，尝试从缓存中读取数据
 			var md5 = require('md5.js');

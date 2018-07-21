@@ -28,7 +28,8 @@ Page({
       { title: "两只老虎", type: 5, jiePPais: 4, miniPPais: 80, code: "1231 1231 345- 345- 565431 565431 3e1- 3e1- " },
       { title: "小小星星亮晶晶", type: 4, jiePPais: 2, miniPPais: 80, code: "11 55 66 5- 44 33 22 1- 55 44 33 2- 55 44 33 2- 11 55 " },
       { title: "粉刷匠", type: 4, jiePPais: 4, miniPPais: 160, code: "5353 551- 2432 5--- 5353 531- 2432 1--- 2244 315- 2432 5---5353 531- 2432 1-00 " },
-    ]
+    ],
+    onelist:[],
   },
 
   /**
@@ -43,6 +44,19 @@ Page({
     //   fail: function(res) {},
     //   complete: function(res) {},
     // })
+    app.util.request({
+      url: 'entry/wxapp/onelist',
+      showLoading: false,
+      secondCache: true,
+      cachetime: '30',
+      success: function (res) {
+        if (!res.data.message.errno) {
+          that.setData({
+            onelist: res.data.data,
+          })
+        }
+      }
+    });
   },
   goToUser:function(){
     wx.navigateTo({

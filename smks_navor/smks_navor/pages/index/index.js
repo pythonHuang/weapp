@@ -25,6 +25,8 @@ Page({
     // //初始化导航数据
     // app.util.request({
     //   url: 'entry/wxapp/GetMusicList',
+    //   showLoading:false,
+    //   secondCache: true,
     //   cachetime: '30',
     //   success: function (res) {
     //     console.log(res.data);
@@ -41,6 +43,8 @@ Page({
     // //初始化导航数据
     // app.util.request({
     //   'url': 'wxapp/home/nav',
+    //   showLoading:false,
+    //   secondCache: true,
     //   'cachetime': '30',
     //   success: function (res) {
     //     if (!res.data.message.errno) {
@@ -54,6 +58,8 @@ Page({
     // });
     // app.util.request({
     //   'url': 'wxapp/home/slide',
+    //   showLoading:false,
+    //   secondCache: true,
     //   'cachetime': '30',
     //   success: function (res) {
     //     if (!res.data.message.errno) {
@@ -65,6 +71,8 @@ Page({
     // });
     // app.util.request({
     //   url: 'wxapp/home/commend',
+    //   showLoading:false,
+    //   secondCache: true,
     //   cachetime: '30',
     //   success: function (res) {
     //     if (!res.data.message.errno) {
@@ -78,7 +86,9 @@ Page({
     // //
     app.util.request({
       url: 'entry/wxapp/swiperlist',
-      //cachetime: '30',
+      showLoading:false,
+      secondCache: true,
+      cachetime: '30',
       success: function (res) {
         if (!res.data.message.errno) {
           that.setData({
@@ -88,19 +98,36 @@ Page({
       }
     });
     app.util.request({
-      url: 'entry/wxapp/contentlist',
+      url: 'entry/wxapp/onelist',
+      showLoading: false,
+      secondCache: true,
       cachetime: '30',
       success: function (res) {
-        console.log(res.data);
         if (!res.data.message.errno) {
           that.setData({
-            contentlist: res.data.data,
+            onelist: res.data.data,
           })
         }
       }
     });
+    // app.util.request({
+    //   url: 'entry/wxapp/contentlist',
+    //   showLoading: false,
+    //   secondCache: true,
+    //   cachetime: '30',
+    //   success: function (res) {
+    //     console.log(res.data);
+    //     if (!res.data.message.errno) {
+    //       that.setData({
+    //         contentlist: res.data.data,
+    //       })
+    //     }
+    //   }
+    // });
     app.util.request({
       url: 'entry/wxapp/icon3list',
+      showLoading: false,
+      secondCache: true,
       cachetime: '30',
       success: function (res) {
         if (!res.data.message.errno) {
@@ -112,6 +139,8 @@ Page({
     });
     app.util.request({
       url: 'entry/wxapp/icon5list',
+      showLoading: false,
+      secondCache:true,
       cachetime: '30',
       success: function (res) {
         if (!res.data.message.errno) {
@@ -121,20 +150,11 @@ Page({
         }
       }
     });
-    
-    app.util.request({
-      url: 'entry/wxapp/onelist',
-      cachetime: '30',
-      success: function (res) {
-        if (!res.data.message.errno) {
-          that.setData({
-            onelist: res.data.data,
-          })
-        }
-      }
-    });
+
     // app.util.request({
     //   url: 'entry/wxapp/twolist',
+    //   showLoading: false,
+    //   secondCache: true,
     //   cachetime: '30',
     //   success: function (res) {
     //     if (!res.data.message.errno) {
@@ -146,6 +166,8 @@ Page({
     // });
     // app.util.request({
     //   url: 'entry/wxapp/threelist',
+    //   showLoading: false,
+    //   secondCache: true,
     //   cachetime: '30',
     //   success: function (res) {
     //     console.log(res.data);

@@ -29,8 +29,8 @@
 <view class='song-panel'>
   <view class='song-header'>
     歌曲:
-    <button style="position:absolute;right:40rpx" type='warn'  size='mini'  open-type='share'>分享</button>
-     <button style="position:absolute;right:40rpx;margin-top:100rpx;" type='default'  size='mini' catchtap='goToMore' >更多</button>
+    <button style="position:absolute;right:40rpx" type='warn'  size='mini'  open-type='share'>分享给朋友</button>
+     <button style="position:absolute;right:40rpx;margin-top:100rpx;" type='default'  size='mini' catchtap='goToMore' >更多精彩…</button>
      
   
   </view>
