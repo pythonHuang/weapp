@@ -36,7 +36,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that=this;
     // wx,wx.downloadFile({
     //   url: 'https://yimg.datixia.com/youxi/abc.com',
     //   header: {},
@@ -48,6 +48,9 @@ Page({
       url: 'entry/wxapp/onelist',
       showLoading: false,
       secondCache: true,
+      data: {
+        m: "smks_navor"
+      },
       cachetime: '30',
       success: function (res) {
         if (!res.data.message.errno) {
@@ -388,6 +391,8 @@ Page({
     //初始化导航数据
     app.util.request({
       url: 'entry/wxapp/GetMusicList',
+      //showLoading: false,
+      secondCache: true,
       data:{
         m:"smks_navor"
       },
@@ -404,5 +409,51 @@ Page({
         }
       }
     });
-  }
+  },
+  goToUrl: function (e) {
+    console.log(e);
+    var ds = e.currentTarget.dataset;
+    var url = ds.url;
+    var appid = ds.appid;
+    var appparam = ds.appparam;
+    var linktype = ds.linktype;
+    var opentype = ds.opentype;
+    var id = ds.id;
+    app.util.request({
+      url: 'entry/wxapp/clickadd',
+      data: {
+        m: "smks_navor",
+        advid: id,
+      },
+      //cachetime: '30',
+      success: function (res) {
+        if (!res.data.message.errno) {
+          
+        }
+      }
+    });
+    if (opentype && url) {
+      if (linktype == "0" || opentype == "url" || url.indexOf("http") == 0) {
+        wx.navigateTo({
+          url: './webview?url=' + encodeURIComponent(url),
+        })
+      } else {
+        var wxTo = wx[opentype];
+        if (!wxTo && linktype == "1") {
+          wxTo = wx["navigateToMiniProgram"];
+        }
+        if (!wxTo) {
+          wxTo = wx["navigateTo"];
+        }
+        if (wxTo) {
+          wxTo({
+            url: url,
+            appId: appid,
+            path: url,
+            extraData: appparam,
+          })
+        }
+      }
+    }
+  },
 })

@@ -1,3 +1,4 @@
+@import '../../smks_navor/pages/templates/adv.wxss';
 page {
   background-color: #42426f;
 }

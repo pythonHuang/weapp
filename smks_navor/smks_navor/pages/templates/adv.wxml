@@ -34,25 +34,37 @@
   </view>
 </template>
 <template name="adlist">
-  <block wx:for="{{list}}">
-    <block  wx:if="{{item.iinktype==3}}">
-      <ad unit-id="{{item.url||item.link}}"/>
-    </block>
-    <block  wx:if="{{item.iinktype!=3}}">
-    <navigator hover-class="navigator-hover" catchtap='goToUrl' url="{{item.url||item.link}}" open-type="{{item.openType||item.opentype}}" data-url="{{item.url||item.link}}" data-linktype="{{item.linktype}}"
-        data-opentype="{{item.opentype}}" data-appid="{{item.appid}}" data-appparam="{{item.appparam}}" data-id="{{item.id}}">
-     <view class="moregame-bb">
+  <view class="moregame" wx:if="{{list.length}}">
+    <view class="moregame-main">
+      <block wx:for="{{list}}">
+        <block wx:if="{{item.iinktype==3}}">
+          <ad unit-id="{{item.url||item.link}}" />
+        </block>
+        <block wx:if="{{item.iinktype!=3}}">
+          <navigator hover-class="navigator-hover" catchtap='goToUrl' url="{{item.url||item.link}}" open-type="{{item.openType||item.opentype}}" data-url="{{item.url||item.link}}" data-linktype="{{item.linktype}}" data-opentype="{{item.opentype}}" data-appid="{{item.appid}}"
+            data-appparam="{{item.appparam}}" data-id="{{item.id}}">
 
-        <view class="moregame-yx">
-          <image src="{{item.icon||item.thumb}}" />
-          <view class="guize2048">{{item.title||item.name||item.advname}}</view>
-          <view class="guize-info">{{item.info||item.other}} </view>
-        </view>
-        <view class="line10"></view>
-      </view>
-      </navigator>
-    </block>
-  </block>
+            <view class="moregame-box">
+              <image src="{{item.icon||item.thumb}}" />
+              <view class="moregame-info">
+                <view class="moregame-info-tl">{{item.title||item.name||item.advname}}</view>
+                <view class="moregame-info-sm">{{item.note||item.other}}</view>
+              </view>
+              <view class="moregame-button" >{{item.btnTitle||'去逛逛'}}</view>
+            </view>
+            <!-- <view class="moregame-bb">
+              <view class="moregame-yx">
+                <image src="{{item.icon||item.thumb}}" />
+                <view class="guize2048">{{item.title||item.name||item.advname}}</view>
+                <view class="guize-info">{{item.info||item.other}} </view>
+              </view>
+              <view class="line10"></view>
+            </view> -->
+          </navigator>
+        </block>
+      </block>
+    </view>
+  </view>
 </template>
 <template name="contentlist">
   <view class="commend">

@@ -197,9 +197,6 @@ Page({
       //cachetime: '30',
       success: function (res) {
         if (!res.data.message.errno) {
-          that.setData({
-            onelist: res.data.data,
-          })
         }
       }
     });
@@ -226,5 +223,11 @@ Page({
         }
       }
     }
+  },
+  onShareAppMessage:function(){
+    return {
+      title: "好多精彩，不信来试试！",
+      path: 'smks_navor/pages/index/index'
+    };
   }
 });
