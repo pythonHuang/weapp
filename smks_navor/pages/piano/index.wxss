@@ -8,8 +8,8 @@ page {
   border-radius:50%;
   border:3rpx solid #eee;
   overflow:hidden;
-  height:61rpx;
-  width:61rpx;
+  height:80rpx;
+  width:80rpx;
   z-index:9999;
 }
 .main {

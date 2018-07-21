@@ -49,7 +49,8 @@ Page({
       showLoading: false,
       secondCache: true,
       data: {
-        m: "smks_navor"
+        m: "smks_navor",
+        "showPlace": "2",
       },
       cachetime: '30',
       success: function (res) {

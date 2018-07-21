@@ -37,10 +37,10 @@
   <view class="moregame" wx:if="{{list.length}}">
     <view class="moregame-main">
       <block wx:for="{{list}}">
-        <block wx:if="{{item.iinktype==3}}">
+        <block wx:if="{{item.linktype==3}}">
           <ad unit-id="{{item.url||item.link}}" />
         </block>
-        <block wx:if="{{item.iinktype!=3}}">
+        <block wx:if="{{item.linktype!=3}}">
           <navigator hover-class="navigator-hover" catchtap='goToUrl' url="{{item.url||item.link}}" open-type="{{item.openType||item.opentype}}" data-url="{{item.url||item.link}}" data-linktype="{{item.linktype}}" data-opentype="{{item.opentype}}" data-appid="{{item.appid}}"
             data-appparam="{{item.appparam}}" data-id="{{item.id}}">
 

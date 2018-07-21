@@ -108,11 +108,11 @@
 
 .moregame {
 margin-top: 3rpx;
-border-radius: 12rpx;
+/*border-radius: 12rpx;
 -webkit-border-radius: 12rpx;
--moz-border-radius: 12rpx;
-padding: 2rpx 24rpx 20rpx;
-margin-bottom: 40rpx;
+-moz-border-radius: 12rpx;*/
+background: #fff;
+/* padding: 2rpx 24rpx 20rpx */
 }
 
 .moregame-tl {
@@ -151,6 +151,7 @@ margin-top: 16rpx;
 }
 
 .moregame-box {
+margin:2rpx 24rpx 20rpx;
 padding: 20rpx 0;
 position: relative;
 overflow: hidden;
