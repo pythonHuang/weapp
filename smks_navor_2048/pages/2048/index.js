@@ -19,7 +19,7 @@ Page({
       },
       cachetime: '30',
       success: function (res) {
-        if (res.data && !res.data.errno) {
+        if (res.data && res.data.data) {
           that.setData({
             audit:res.data.data.audit,
           });

@@ -1,6 +1,8 @@
 {
   "pages": [
-  
+    "my2048/pages/2048/2048",
+
+    "pages/2048/index",
     "pages/pianohen/index",
     "pages/piano/index",
     "smks_navor/pages/index/index",
