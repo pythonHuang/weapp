@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" wx:if="{{audit==0}}">
 
   <view class="game-body">
     <loading hidden="{{hidden}}">

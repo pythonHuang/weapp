@@ -65,10 +65,11 @@ var config = {
     },
     onShow: function () {
       var that = this;
-      that.checkAudit();
+      
     },
     onLoad: function() {
       var that = this;
+      that.checkAudit();
       // wx,wx.downloadFile({
       //   url: 'https://yimg.datixia.com/youxi/abc.com',
       //   header: {},
